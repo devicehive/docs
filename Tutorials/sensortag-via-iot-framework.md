@@ -3,39 +3,39 @@ title: "Connecting TI SensorTag to DeviceHive"
 slug: "sensortag-via-iot-framework"
 excerpt: ""
 hidden: true
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Wed Oct 14 2015 15:14:04 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Feb 18 2025 13:02:59 GMT+0000 (Coordinated Universal Time)"
 ---
-Connecting real world objects to the Internet is what defines IoT. Very often it is needed to remotely monitor the environment or state of the object. There are many ways to do that, but one of our favorites is to use Texas Instruments [Simplelink SensorTag](http://www.ti.com/sensortag) and BeagleBone Black [BBB](http://beagleboard.org/BLACK) connected to DeviceHive IoT platform. 
+
+Connecting real world objects to the Internet is what defines IoT. Very often it is needed to remotely monitor the environment or state of the object. There are many ways to do that, but one of our favorites is to use Texas Instruments [Simplelink SensorTag](http://www.ti.com/sensortag) and BeagleBone Black [BBB](http://beagleboard.org/BLACK) connected to DeviceHive IoT platform.
 
 This is where DeviceHive Cloud and [IoT Toolkit](doc:iot-toolkit-overview) help come to rescue. Paired with SensorTag and widely available affordable linux-based gateways it you can get a working prototype in minutes.
 
 [block:image]
 {
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/rJnY3ZyNT2qWZ97MCFg3_SensorTag2-crop.jpg",
-        "https://files.readme.io/OhapgZ5NRwWQ1xMwc2bO_SensorTag2.jpg",
-        "SensorTag2-crop.jpg"
-      ],
-      "caption": "CC2650 SensorTag"
-    }
-  ]
+"images": [
+{
+"image": [
+"images/rJnY3ZyNT2qWZ97MCFg3_SensorTag2-crop.jpg",
+"images/OhapgZ5NRwWQ1xMwc2bO_SensorTag2.jpg",
+"SensorTag2-crop.jpg"
+],
+"caption": "CC2650 SensorTag"
+}
+]
 }
 [/block]
 
-
 Below is a quick diagram of what the solution will look like under the hood. Now let's go into the details.
 
-![473](https://files.readme.io/ExZWyDoLS8i9dQNCxant_SensorTag.png "SensorTag.png")
+![473](images/ExZWyDoLS8i9dQNCxant_SensorTag.png "SensorTag.png")
 
 With a little bit of DeviceHive magic, in the end of this exercise we'll get a nice web-based chart of SensorTag's motion:
 
-![329](https://files.readme.io/h1zEUUd8TwsEFA6RaOzq_freeboard-widget.png "freeboard-widget.png")
+![329](images/h1zEUUd8TwsEFA6RaOzq_freeboard-widget.png "freeboard-widget.png")
 
 Now, let' get started!
 
@@ -60,23 +60,22 @@ Please make sure Bluetooth 4.0 Low Energy USB Adapter is plugged into your Linux
 
 [block:image]
 {
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ZHDxR1TSQO2u0LfH9WLZ_small.jpg",
-        "small.jpg",
-        "800"
-      ],
-      "caption": "Beagle Bone Black"
-    }
-  ]
+"images": [
+{
+"image": [
+"images/ZHDxR1TSQO2u0LfH9WLZ_small.jpg",
+"small.jpg",
+"800"
+],
+"caption": "Beagle Bone Black"
+}
+]
 }
 [/block]
 
-
 ## Installing and Configuring IoT-Toolkit
 
-[DeviceHive IoT Toolkit](https://github.com/devicehive/IoT-framework) is an Open Source set of services that allow you to quickly connect to basic IoT devices and cloud giving you an easy to use [D-Bus](http://www.freedesktop.org/wiki/Software/dbus/) based API which can be used from any programming language that has D-Bus bindings: Python, Go, JavaScript, C/C++ etc.  currently supports: Bluetooth Low Energy, DeviceHive cloud, AllJoyn, GPIO and more.
+[DeviceHive IoT Toolkit](https://github.com/devicehive/IoT-framework) is an Open Source set of services that allow you to quickly connect to basic IoT devices and cloud giving you an easy to use [D-Bus](http://www.freedesktop.org/wiki/Software/dbus/) based API which can be used from any programming language that has D-Bus bindings: Python, Go, JavaScript, C/C++ etc. currently supports: Bluetooth Low Energy, DeviceHive cloud, AllJoyn, GPIO and more.
 
 DeviceHive IoT-Toolkit is available as a Snap for the Snappy Ubuntu Core. You can download a precompiled version of binaries from [releases page](https://github.com/devicehive/IoT-framework/releases):  
 [devicehive-iot-toolkit_1.0.0_multi.snap](https://github.com/devicehive/IoT-framework/releases/download/1.0.0/devicehive-iot-toolkit_1.0.0_multi.snap)  
@@ -105,18 +104,18 @@ ssh ubuntu@your-device-ip
 ```
 
 > 📘 Knowing your device IP address
-> 
+>
 > To get your device IP address you can look into router DHCP table or use tool like nmap to scan available computers with open ssh port, for example assuming your computer is on 192.168.0.0/24 network:  
 > nmap -p 22 -T4 -O --open 192.168.0.0/24
 
 > 📘 Default credentials
-> 
+>
 > Snappy Ubuntu Core uses the following ssh credentials by default: ubuntu/ubuntu
 
 Once you SSH'ed into device, use the following command to install and configure DeviceHive snap:
 
 ```shell
-# install allowing usage of unsigned snaps 
+# install allowing usage of unsigned snaps
 sudo snappy install --allow-unauthenticated devicehive-iot-toolkit_1.0.0_multi.snap
 
 # apply custom configwith server connection settings
@@ -133,7 +132,7 @@ sudo snappy install --allow-unauthenticated sensortag-cloud-demo_1.0.0_multi.sna
 ```
 
 > 📘 Troubleshooting
-> 
+>
 > Note, that you can monitor system and snappy services logs using syslog:  
 > sudo tail -f /var/log/syslog
 
@@ -150,7 +149,7 @@ Let's display sensor data in the online dashboard. DeviceHive Playground comes w
 5. Add `accelerometer` as notification name.
 6. Click SAVE.
 
-![935](https://files.readme.io/dLvpXDjBSpW7VArQdzzF_freeboard-add-data-source.png "freeboard-add-data-source.png")
+![935](images/dLvpXDjBSpW7VArQdzzF_freeboard-add-data-source.png "freeboard-add-data-source.png")
 
 Now add widgets with visualizations:
 
@@ -159,12 +158,12 @@ Now add widgets with visualizations:
 3. Choose absolute acceleration `VALUE`: `datasources["SensorTagGW"]["parameters"]["Value"]["abs"]` replace "SensorTagGW" to your `Name` of the datasource.
 4. Click [SAVE]
 
-![926](https://files.readme.io/kU0oMhqmSryMEUrcFOZY_freeboard-add-data-widget.png "freeboard-add-data-widget.png")
+![926](images/kU0oMhqmSryMEUrcFOZY_freeboard-add-data-widget.png "freeboard-add-data-widget.png")
 
 Success!  
 Given the sensor tag is turned on nearby you should now see the chart displaying to SensorTag's motion. Try it with light and temperature!
 
-![329](https://files.readme.io/h1zEUUd8TwsEFA6RaOzq_freeboard-widget.png "freeboard-widget.png")
+![329](images/h1zEUUd8TwsEFA6RaOzq_freeboard-widget.png "freeboard-widget.png")
 
 ## Understanding sensortag-cloud example code
 

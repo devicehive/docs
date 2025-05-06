@@ -3,19 +3,20 @@ title: "Get Started"
 slug: "get-started"
 excerpt: ""
 hidden: false
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Wed Jul 05 2017 20:09:32 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Nov 08 2017 08:50:30 GMT+0000 (Coordinated Universal Time)"
 ---
+
 The DeviceHive API is the central part of the framework which allows different components to interact with each other. The API provides access to information about registered components in the system, and allows them to exchange messages in real time.
 
 ## Use Cases
 
 There are three types of consumers of the DeviceHive API, as shown on the diagram below:
 
-![](https://files.readme.io/8237eff-UseCases.png "UseCases.png")
+![](images/8237eff-UseCases.png "UseCases.png")
 
 **Device**
 
@@ -39,20 +40,20 @@ Administrator controls all aspects of the environment with the full access to th
 
 - Administrator creates and manages API users (clients and other administrators).
 - Administrator creates and manages device networks and associates users with them.
-- Administrator monitors devices and all dispatched notifications and commands. 
+- Administrator monitors devices and all dispatched notifications and commands.
 
 ## Resources
 
 The DeviceHive API is a RESTful service, which operates on several resource types. The diagram below reflects all used resource types and their relationships:
 
-![](https://files.readme.io/4404501-DataModel.png "DataModel.png")
+![](images/4404501-DataModel.png "DataModel.png")
 
 - [User](doc:user): represents a user with credentials and API access rights (client or administrator).
 - [Network](doc:network): represents an isolation entity that encapsulates multiple devices with controlled access.
 - [Device](doc:device): represents a unit that runs microcode.
 - [Device Notification](doc:devicenotification): represents a message dispatched by devices for clients.
 - [Device Command](doc:devicecommand): represents a message dispatched by clients for devices.
-- [JSON Web Token](doc:authentication): represents an access key with specific API access rights. 
+- [JSON Web Token](doc:authentication): represents an access key with specific API access rights.
 
 ## Server Processes
 

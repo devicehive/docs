@@ -3,32 +3,32 @@ title: "Running Docker on C.H.I.P."
 slug: "running-docker-on-chip"
 excerpt: "Tutorial on building Docker enabled kernel for $9 computer."
 hidden: true
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Tue Mar 22 2016 21:21:55 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Feb 18 2025 13:02:59 GMT+0000 (Coordinated Universal Time)"
 ---
+
 ## What is Docker?
 
 [Docker](http://docker.io) is an open platform to ship and deploy distributed applications in an isolated way using containers.  
-It's getting popularity among developers and enterprises for simplicity and agility of packaging applications and components of any complexity into simple and approachable format - container. 
+It's getting popularity among developers and enterprises for simplicity and agility of packaging applications and components of any complexity into simple and approachable format - container.
 
 [block:image]
 {
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/BSt4OSeTQ2eYYdTEeuT0_docker.png",
-        "docker.png",
-        "1650"
-      ],
-      "sizing": "80"
-    }
-  ]
+"images": [
+{
+"image": [
+"images/BSt4OSeTQ2eYYdTEeuT0_docker.png",
+"docker.png",
+"1650"
+],
+"sizing": "80"
+}
+]
 }
 [/block]
-
 
 ## What is C.H.I.P.?
 
@@ -37,19 +37,18 @@ Basically a tiny ARM computer that has 4GB of storage, 512MB RAM, WiFi and Bluet
 
 [block:image]
 {
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ym18YJCcSnW0wWwkGDMz_chip1.jpg",
-        "chip1.jpg",
-        "1200"
-      ],
-      "sizing": "80"
-    }
-  ]
+"images": [
+{
+"image": [
+"images/ym18YJCcSnW0wWwkGDMz_chip1.jpg",
+"chip1.jpg",
+"1200"
+],
+"sizing": "80"
+}
+]
 }
 [/block]
-
 
 ## Why?
 
@@ -70,14 +69,14 @@ curl -L https://raw.githubusercontent.com/docker/docker/master/contrib/check-con
 What we need is `Generally Necessary` features and some Storage Drivers to be enabled. Preferably `aufs`.  
 To enable these features we need to recompile kernel with updated .config file.  
 The slow and easy way to do it on C.H.I.P. itself. But it can be also done on VM.  
-This tutorial will cover first approach using this kindly provided guide [HOW-TO compile Chip's Linux kernel and modules on Chip itself](http://www.raspibo.org/wiki/index.php/HOW-TO_compile_Chip%27s_Linux_kernel_and_modules_on_Chip_itself). 
+This tutorial will cover first approach using this kindly provided guide [HOW-TO compile Chip's Linux kernel and modules on Chip itself](http://www.raspibo.org/wiki/index.php/HOW-TO_compile_Chip%27s_Linux_kernel_and_modules_on_Chip_itself).
 
 ## Building Kernel
 
 Follow the guide and make sure after `make menuconfig` command your .config file passes required checks by `check-config.sh` script above.  
 Here's the one I used for my build: [.config](https://gist.github.com/demon-xxi/4e3bf6c83dd79c7a15a3).
 
-```shell Results of running check-config.sh 
+```shell Results of running check-config.sh
 info: reading kernel config from /boot/config-4.3.0rd235-gfbe7da8-dirty ...
 
 Generally Necessary:

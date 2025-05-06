@@ -3,21 +3,22 @@ title: "DeviceHive Plugin Management service"
 slug: "devicehive-plugin-management-services"
 excerpt: "This page contains basic information about Plugin Management service"
 hidden: false
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Tue Feb 27 2018 13:05:47 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Apr 11 2018 13:34:31 GMT+0000 (Coordinated Universal Time)"
 ---
+
 # Overview
 
-The plugin management service is an additional DeviceHive microservice, which allows managing device command or notification subscriptions into a dedicated Kafka topic. 
+The plugin management service is an additional DeviceHive microservice, which allows managing device command or notification subscriptions into a dedicated Kafka topic.
 
-In order to register, delete, and update plugins, the plugin management service integrates with [Swagger](https://swagger.io/), which is a framework of API developer tools. 
+In order to register, delete, and update plugins, the plugin management service integrates with [Swagger](https://swagger.io/), which is a framework of API developer tools.
 
 The plugin supports various combinations of subscriptions: by networks, devices, or device types.
 
-![](https://files.readme.io/a834dfa-Slide3.png "Slide3.png")
+![](images/a834dfa-Slide3.png "Slide3.png")
 
 # Components
 

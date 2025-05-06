@@ -18,7 +18,7 @@ Speaking more technically, it's a scalable, hardware- and cloud-agnostic microse
 
 Our platform covers the whole flow starting from Data Transition, Validation and Collection up to Machine Learning jobs and Artificial Intelligence. We also provide monitoring tools so you'd be able to start your discovery without being obliged to connect real hardware to the platform at startup.
 
-![](95b1510-Slide1.png "Slide1.png")
+![](images/95b1510-Slide1.png "Slide1.png")
 
 # What protocols does DeviceHive provide?
 

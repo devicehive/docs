@@ -3,13 +3,14 @@ title: "Web interface enabled devices"
 slug: "web-interface-enabled-devices"
 excerpt: ""
 hidden: false
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Mon Feb 26 2018 09:46:20 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Mon Mar 05 2018 13:38:55 GMT+0000 (Coordinated Universal Time)"
 ---
-![](https://files.readme.io/e3c6b11-IMG_5109_small.JPG "IMG_5109_small.JPG")
+
+![](images/e3c6b11-IMG_5109_small.JPG "IMG_5109_small.JPG")
 
 In this tutorial we will describe how to build you own IoT device with a web interface which will be available on the local network. This web interface will show data from a Si7021 sensor: temperature and humidity. The device itself is be based on the ESP8266 Wi-Fi system on chip and uses the [DeviceHive firmware](https://github.com/devicehive/esp8266-firmware).
 
@@ -19,41 +20,40 @@ First of all, the DeviceHive firmware should be flashed onto a board. For this p
 
 [Download the latest firmware binary release](https://github.com/devicehive/esp8266-firmware/releases/latest) from GitHub. Unpack the archive, connect the NodeMCU board with a MicroUSB cable (some OSes might require driver installation) and use the esp-flasher util from the archive. The NodeMCU board doesn't require you to hold any buttons or the connect pin to start flashing. A successful flashing procedure provides output as shown on this screenshot:
 
-![](https://files.readme.io/3d67f86-Screen_Shot_2018-02-26_at_15.58.37.png "Screen Shot 2018-02-26 at 15.58.37.png")
+![](images/3d67f86-Screen_Shot_2018-02-26_at_15.58.37.png "Screen Shot 2018-02-26 at 15.58.37.png")
 
 After flashing is done, reconnect the board from the USB port to reboot it. If the firmware was flashed for the first time the Blue LED on modules should be on. If the firmware has previously been flashed, then gently press the RESET button on the module three times and the blue LED should turn on.
 
-![](https://files.readme.io/888e6f9-IMG_2511.JPG "IMG_2511.JPG")
+![](images/888e6f9-IMG_2511.JPG "IMG_2511.JPG")
 
 Now take any mobile phone or laptop with Wi-Fi and connect to the open wireless DeviceHive network. The chip configuration dialog should appear on screen automatically (if not, put this link in the browser: <http://devicehive.config>). Enter you Wi-Fi network name (SSID) and password. Type climate in the device id field, this id is used as the domain address for the device web interface. Leave API Url and Key empty. (If a key was specified then authorization should be implemented in the web interface. In order to simplify this tutorial we will skip this part). Sample configuring screen:
 
-![](https://files.readme.io/8859eec-IMG_0597.PNG "IMG_0597.PNG")
+![](images/8859eec-IMG_0597.PNG "IMG_0597.PNG")
 
-After applying these settings, connect any device with a web browser and mDNS support (for Windows OS, mDNS support can be added by 3rd party applications, for example  [this](https://support.apple.com/kb/DL999)). Also, instead of the .local url, the chip's IP address can be used. Open your web browser with this link <http://climate.local.> The default web page is displayed.
+After applying these settings, connect any device with a web browser and mDNS support (for Windows OS, mDNS support can be added by 3rd party applications, for example [this](https://support.apple.com/kb/DL999)). Also, instead of the .local url, the chip's IP address can be used. Open your web browser with this link <http://climate.local.> The default web page is displayed.
 
-![](https://files.readme.io/16079e3-Screen_Shot_2018-02-26_at_18.44.01.png "Screen Shot 2018-02-26 at 18.44.01.png")
+![](images/16079e3-Screen_Shot_2018-02-26_at_18.44.01.png "Screen Shot 2018-02-26 at 18.44.01.png")
 
 ## 2. Connect the sensor
 
 Since the Si7021 sensor uses the I2C interface, just 4 wires are required to connect this sensor. The firmware allows to use any GPIO pins as I2C SDA and SCL. So we are free to choose the simplest way to connect the sensor. Connect the sensor according to this circuit diagram:
 
-![](https://files.readme.io/a87e312-circuit.png "circuit.png")
+![](images/a87e312-circuit.png "circuit.png")
 
 [block:image]
 {
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/e0a2551-IMG_7528.JPG",
-        "IMG_7528.JPG",
-        1280
-      ],
-      "caption": "You can also use jump wires for connection"
-    }
-  ]
+"images": [
+{
+"image": [
+"images/e0a2551-IMG_7528.JPG",
+"IMG_7528.JPG",
+1280
+],
+"caption": "You can also use jump wires for connection"
+}
+]
 }
 [/block]
-
 
 Please note, the NodeMCU board is marked with internal pins enumerated with a D prefix. D5 is ESP8266's GPIO14 and D6 is GPIO12 pin.
 
@@ -63,10 +63,9 @@ Now it's time to implement custom web interface for our devices. As was mentione
 
 [block:html]
 {
-  "html": "<script src=\"https://gist.github.com/Nikolay-Kha/a98697964748bcee9e57a18cb4cfc620.js\"></script>"
+"html": "<script src=\"https://gist.github.com/Nikolay-Kha/a98697964748bcee9e57a18cb4cfc620.js\"></script>"
 }
 [/block]
-
 
 The code is pretty short and simple, but let us break down this code line by line to make it clearer.
 
@@ -78,7 +77,7 @@ The code is pretty short and simple, but let us break down this code line by lin
 
 Now let us copy this code into the clipboard and go to the page editor at <http://climate.local/editor.html> and paste the code from the clipboard. Click the Flash button. Now the chip is flashed with our own page. Open this url: <http://climate.local> in any browser on the same Wi-Fi network and the current sensor data will be displayed.
 
-![](https://files.readme.io/489e9eb-Screen_Shot_2018-02-27_at_15.12.27.png "Screen Shot 2018-02-27 at 15.12.27.png")
+![](images/489e9eb-Screen_Shot_2018-02-27_at_15.12.27.png "Screen Shot 2018-02-27 at 15.12.27.png")
 
 ## Conclusion
 

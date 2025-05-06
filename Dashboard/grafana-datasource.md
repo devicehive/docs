@@ -3,15 +3,16 @@ title: "Grafana datasource"
 slug: "grafana-datasource"
 excerpt: ""
 hidden: false
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Fri Nov 10 2017 09:49:51 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed Nov 29 2017 14:50:58 GMT+0000 (Coordinated Universal Time)"
 ---
+
 DeviceHive is an IoT platform which has plenty of different components. The Grafana plugin is one of them. This plugin can gather data from a DeviceHive server and display it with different dashboards using the very popular tool - Grafana. This article explains how to create a Grafana dashboard with DeviceHive. As an example, this uses the ESP8266 chip analog pin to visualise the voltage on it.
 
-![](https://files.readme.io/a4494cd-5ec1595-image15.png "5ec1595-image15.png")
+![](images/a4494cd-5ec1595-image15.png "5ec1595-image15.png")
 
 ## Data
 
@@ -23,13 +24,13 @@ The binaries for the DeviceHive firmware are available [here](https://github.com
 
 There is a [free playground service](https://playground.devicehive.com/), which can be used for absolutely free to try a DeviceHive server. After your chip is connected to your server or playground, go to the server admin panel, find your ESP8266 device in the device list and issue the 'adc/int' command with the parameters '{"0": 500}'.
 
-![](https://files.readme.io/3cf0674-f412615-image4.png "f412615-image4.png")
+![](images/3cf0674-f412615-image4.png "f412615-image4.png")
 
 This command causes the esp8266 to report every 500ms the voltage on ADC input #0(the only ESP8266 has). After switching to 'notifications' there should be screen like:
 
-![](https://files.readme.io/225ab9c-52acb3f-image17.png "52acb3f-image17.png")
+![](images/225ab9c-52acb3f-image17.png "52acb3f-image17.png")
 
-That is the voltage on the chip's input pin. And this kind of data is suitable for us to display with Grafana: notifications contain data (parameters in our case), notifications come continuously, and all DeviceHive's notifications always have a timestamp. Having an analogue sensor connected to this pin it is possible to display this data with Grafana.
+That is the voltage on the chip's input pin. And this kind of data is suitable for us to display with Grafana: notifications contain data (parameters in our case), notifications come continuously, and all DeviceHive's notifications always have a timestamp. Having an analogue sensor connected to this pin it is possible to display this data with Grafana.
 
 ## Installing the DeviceHive Grafana plugin to Grafana
 
@@ -45,12 +46,12 @@ $ grafana-cli plugins install devicehive-devicehive-datasource
 
 If you want to install the plugin manually, you should perform the following steps:
 
-Prerequisites, these packages should be installed: 
+Prerequisites, these packages should be installed:
 
 1. Grafana >= 4.6
 2. NodeJs >= 8 (optional)
 3. NPM >= 5 (optional)
-4. Grunt (npm install grunt -g) (optional) 
+4. Grunt (npm install grunt -g) (optional)
 
 Also you should have permissions to copy data to the Plugins folder (you could set it in `grafana.ini` in `Paths->plugins`).
 
@@ -70,7 +71,7 @@ Also you should have permissions to copy data to the Plugins folder (you could s
 
 After installation you will be able to see the DeviceHive datasource plugin in the installed plugins list (look at the picture below).
 
-![](https://files.readme.io/1579b7b-eb4358d-image12.png "eb4358d-image12.png")
+![](images/1579b7b-eb4358d-image12.png "eb4358d-image12.png")
 
 ## Adding grafana datasource
 
@@ -83,7 +84,7 @@ To add DeviceHive datasource, you should perform the following steps:
 
 Look at the picture below:
 
-![](https://files.readme.io/bfc4587-e4de5a1-Screen_Shot_2017-11-22_at_11.42.14_AM.png "e4de5a1-Screen_Shot_2017-11-22_at_11.42.14_AM.png")
+![](images/bfc4587-e4de5a1-Screen_Shot_2017-11-22_at_11.42.14_AM.png "e4de5a1-Screen_Shot_2017-11-22_at_11.42.14_AM.png")
 
 To configure the DeviceHive datasource you should fill on the following fields:
 
@@ -95,25 +96,25 @@ Also, you are able to specify the RefreshToken for auto refreshing the AccessTok
 
 On the picture below you can observe the configuration workflow:
 
-![](https://files.readme.io/af94573-b289e78-image5.gif "b289e78-image5.gif")
+![](images/af94573-b289e78-image5.gif "b289e78-image5.gif")
 
 After adding and configuring a DeviceHive datasource, it should exist in the datasource list as in the picture below:
 
-![](https://files.readme.io/35314c0-9c08ea0-image8.png "9c08ea0-image8.png")
+![](images/35314c0-9c08ea0-image8.png "9c08ea0-image8.png")
 
 ## Create new dashboard
 
 To create a new dashboard you should just click on the “New” button in the sidebar panel as shown in the picture below:
 
-![](https://files.readme.io/24ffc47-4defc00-image10.png "4defc00-image10.png")
+![](images/24ffc47-4defc00-image10.png "4defc00-image10.png")
 
 In this article we will show examples on the Graph panel, so, click on the Graph button:
 
-![](https://files.readme.io/c0c063d-76fb74c-image3-2.png "76fb74c-image3-2.png")
+![](images/c0c063d-76fb74c-image3-2.png "76fb74c-image3-2.png")
 
 After that you will be able to see line chart on your dashboard:
 
-![](https://files.readme.io/3d0da72-c3aa6c6-image16.png "c3aa6c6-image16.png")
+![](images/3d0da72-c3aa6c6-image16.png "c3aa6c6-image16.png")
 
 ## Displaying notifications/commands with Grafana's graph
 
@@ -125,7 +126,7 @@ By default, a Notification or Command message provides the field named “parame
 
 At the start of this article we configured the ESP8266 device to send notifications with data that represents the state on analogue pin#0 of the chip. In the picture below you are able to observe how to configure the Grafana graph panel to make it show the data on the line chart:
 
-![](https://files.readme.io/a1caf74-d815c0a-image1.gif "d815c0a-image1.gif")
+![](images/a1caf74-d815c0a-image1.gif "d815c0a-image1.gif")
 
 ## Displaying annotations on Grafana's graph
 
@@ -134,7 +135,7 @@ More information about annotations you can find by following this link.
 
 The picture below shows how to configure annotations powered by a DeviceHive datasource.
 
-![](https://files.readme.io/38ab3e5-b289e78-image5.gif "b289e78-image5.gif")
+![](images/38ab3e5-b289e78-image5.gif "b289e78-image5.gif")
 
 ## Advanced graph tuning
 
@@ -151,11 +152,11 @@ For now, DeviceHive datasources support the following types of converters:
 - Weight ('kg' - Kilogram, 'lb' - Pound, 'oz' - Ounces)
 - Volume ('l' - Liter, 'gal' - Gallon, 'pt' - Pint)
 
-![](https://files.readme.io/f5ef164-e4de5a1-Screen_Shot_2017-11-22_at_11.42.14_AM.png "e4de5a1-Screen_Shot_2017-11-22_at_11.42.14_AM.png")
+![](images/f5ef164-e4de5a1-Screen_Shot_2017-11-22_at_11.42.14_AM.png "e4de5a1-Screen_Shot_2017-11-22_at_11.42.14_AM.png")
 
 An example of this functionality is shown in the picture below.
 
-![](https://files.readme.io/1305624-4993329-image6.gif "4993329-image6.gif")
+![](images/1305624-4993329-image6.gif "4993329-image6.gif")
 
 ## Conclusion
 

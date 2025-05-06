@@ -3,12 +3,13 @@ title: "Freeboard: Datasource and Widgets"
 slug: "datasource-setup"
 excerpt: ""
 hidden: true
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Mon Jun 19 2017 12:48:39 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Tue Feb 18 2025 13:02:59 GMT+0000 (Coordinated Universal Time)"
 ---
+
 ## devicehive-freeboard-datasource
 
 [DeviceHive](http://devicehive.com) datasource plugin integrates your realtime device notifications with freeboard.
@@ -38,9 +39,9 @@ git submodule update --init --recursive
 
 ## Screenshots
 
-![](https://files.readme.io/f83db1b-widget-1-2-setup.png "widget-1-2-setup.png")
+![](images/f83db1b-widget-1-2-setup.png "widget-1-2-setup.png")
 
-![](https://files.readme.io/fee546c-screen-2.gif "screen-2.gif")
+![](images/fee546c-screen-2.gif "screen-2.gif")
 
 ## DeviceHive Datasource Setup
 
@@ -54,7 +55,7 @@ To add [DeviceHive](http://devicehive.com/) datasource click "Add" button under 
    2.2. Name: You can enter any name you like (e.g. 'DH')  
    2.3. Server API URL: Enter your [DeviceHive](http://devicehive.com/) Server.
 
- Examples: 
+Examples:
 
 ```
     2.3.1. For Playground use http://playground.devicehive.com/api/rest
@@ -66,41 +67,41 @@ To add [DeviceHive](http://devicehive.com/) datasource click "Add" button under 
 
 If left blank notifications for all devices will be visualized.
 
-![](https://files.readme.io/c404c22-devices.png "devices.png")
+![](images/c404c22-devices.png "devices.png")
 
 2.6. NOTIFICATION NAME: Notifications with the mentioned names only will be shown. Hit Add button to add several notification names.  
 If left blank all notification names will be visualized.
 
 ## Widget setup examples
 
-**Notification sample 1 (integer value)** 
+**Notification sample 1 (integer value)**
 
-![](https://files.readme.io/b2638bf-notification1.png "notification1.png")
-
-**Widget 1: setup and final look** 
-
-![](https://files.readme.io/656fae5-widget-1-1-setup.png "widget-1-1-setup.png")
-
-![](https://files.readme.io/3bd904b-widget-1.png "widget-1.png")
-
-**Widget 2: setup and final look**
-
-![](https://files.readme.io/99878ad-widget-1-2-setup.png "widget-1-2-setup.png")
-
-![](https://files.readme.io/a0bcd2c-widget-1.png "widget-1.png")
-
-**Notification sample 2 (json object)** 
-
-![](https://files.readme.io/2af0790-notification_json.png "notification_json.png")
+![](images/b2638bf-notification1.png "notification1.png")
 
 **Widget 1: setup and final look**
 
-![](https://files.readme.io/bb330d2-widget-2-1-setup.png "widget-2-1-setup.png")
+![](images/656fae5-widget-1-1-setup.png "widget-1-1-setup.png")
 
-![](https://files.readme.io/db5fbb8-widget-1.png "widget-1.png")
+![](images/3bd904b-widget-1.png "widget-1.png")
 
 **Widget 2: setup and final look**
 
-![](https://files.readme.io/04a4aae-widget-2-2-setup.png "widget-2-2-setup.png")
+![](images/99878ad-widget-1-2-setup.png "widget-1-2-setup.png")
 
-![](https://files.readme.io/d444261-widget-2.png "widget-2.png")
+![](images/a0bcd2c-widget-1.png "widget-1.png")
+
+**Notification sample 2 (json object)**
+
+![](images/2af0790-notification_json.png "notification_json.png")
+
+**Widget 1: setup and final look**
+
+![](images/bb330d2-widget-2-1-setup.png "widget-2-1-setup.png")
+
+![](images/db5fbb8-widget-1.png "widget-1.png")
+
+**Widget 2: setup and final look**
+
+![](images/04a4aae-widget-2-2-setup.png "widget-2-2-setup.png")
+
+![](images/d444261-widget-2.png "widget-2.png")

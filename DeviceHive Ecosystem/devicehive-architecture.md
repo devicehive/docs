@@ -3,16 +3,17 @@ title: "DeviceHive Microservices Architecture"
 slug: "devicehive-architecture"
 excerpt: ""
 hidden: false
-metadata: 
+metadata:
   image: []
   robots: "index"
 createdAt: "Wed Feb 07 2018 14:25:20 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Thu Mar 22 2018 09:51:53 GMT+0000 (Coordinated Universal Time)"
 ---
+
 DeviceHive is a micro service-based system, built with high scalability and availability in mind.  
 We understand that timeseries data (sensor data in our case) is always a challenge no matter what operations are taken on it. So we built a platform, which could not only listen to hundreds of devices simultaneously, but also scale to the required amount of instances in order to guarantee data safety and availability.
 
-![](https://files.readme.io/1a1bd86-Slide2.png "Slide2.png")
+![](images/1a1bd86-Slide2.png "Slide2.png")
 
 Let's take a look at the basic DeviceHive components:
 
@@ -26,7 +27,7 @@ Storing time series data for a long period of time is not always required - usua
 
 # Message Bus (Kafka)
 
-Can you imagine Microservice architecture without a Message bus? Neither do we. That's why Kafka is here. It takes care of communication between services and balances load between them. 
+Can you imagine Microservice architecture without a Message bus? Neither do we. That's why Kafka is here. It takes care of communication between services and balances load between them.
 
 Why Kafka? It is fast, distributed, fault tolerant messaging system. It covers all our needs.  
 But we understand that one day somebody may want to replace it with even faster or more lightweight solution. That's why decided not to use Kafka client libraries inside our services anymore (though RPC profile is still available, but it won't be supported in future releases). What we do use is **Websocket Kafka Proxy** - one more micro service, written in Node.js. It allows to be more flexible and not to commit to any message bus implementation. All services implement Websocket client API and don't rely on any specific Kafka methods or configurations.
